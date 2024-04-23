@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'terminal/parsers/ffmprobe/video'
+require 'terminal/ffmprobe/parser'
 
-RSpec.describe Terminal::Parsers::FFMProbe::Video do
+RSpec.describe ::Terminal::FFMProbe::Parser do
   describe '#parse' do
     it 'parse the output of a ffmprobe video metadata' do
       output = described_class.parse(ffmprobe_output)
