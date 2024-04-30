@@ -22,4 +22,120 @@ RSpec.describe CameraMan::Medias::Video do
       expect(video.metadata.width).to eq(1481)
     end
   end
+
+  describe '#resolution' do
+    it 'set the correct resolution in the initializer' do
+      new_resolution = [1366, 768]
+      video = described_class.new(file_path: 'tmp/teste.webm', resolution: new_resolution)
+
+      expect(video.resolution).to eq(new_resolution)
+    end
+
+    it 'set the correct resolution with the setter' do
+      new_resolution = [1366, 768]
+      video = described_class.new(file_path: 'tmp/teste.webm')
+      video.resolution = new_resolution
+
+      expect(video.resolution).to eq(new_resolution)
+    end
+
+    context 'when resolution is invalid' do
+      it 'raise an error' do
+        new_resolution = ['1366', 768]
+        video = described_class.new(file_path: 'tmp/teste.webm')
+
+        expect { video.resolution = new_resolution }.to raise_error(
+          CameraMan::Errors::InvalidResolution,
+          'The resolution is invalid. It must be an Array like [1366, 768]'
+        )
+      end
+    end
+  end
+
+  describe '#aspect_ratio' do
+    it 'set the correct aspect ratio in the initializer' do
+      new_aspect_ratio = [16, 9]
+      video = described_class.new(file_path: 'tmp/teste.webm', aspect_ratio: new_aspect_ratio)
+
+      expect(video.aspect_ratio).to eq(new_aspect_ratio)
+    end
+
+    it 'set the correct aspect ratio with the setter' do
+      new_aspect_ratio = [16, 9]
+      video = described_class.new(file_path: 'tmp/teste.webm')
+      video.aspect_ratio = new_aspect_ratio
+
+      expect(video.aspect_ratio).to eq(new_aspect_ratio)
+    end
+
+    context 'when aspect ratio is invalid' do
+      it 'raise an error' do
+        new_aspect_ratio = ['nine', 8]
+        video = described_class.new(file_path: 'tmp/teste.webm')
+
+        expect { video.aspect_ratio = new_aspect_ratio }.to raise_error(
+          CameraMan::Errors::InvalidAspectRatio,
+          'The aspect ratio is invalid. It must be an Array like [16, 9]'
+        )
+      end
+    end
+  end
+
+  describe '#starts_at' do
+    it 'set the correct start time in the initializer' do
+      start_time = 2
+      video = described_class.new(file_path: 'tmp/teste.webm', starts_at: start_time)
+
+      expect(video.starts_at).to eq(start_time)
+    end
+
+    it 'set the correct start time with the setter' do
+      start_time = 1
+      video = described_class.new(file_path: 'tmp/teste.webm')
+      video.starts_at = start_time
+
+      expect(video.starts_at).to eq(start_time)
+    end
+
+    context 'when start time is invalid' do
+      it 'raise an error' do
+        start_time = 'one'
+        video = described_class.new(file_path: 'tmp/teste.webm')
+
+        expect { video.starts_at = start_time }.to raise_error(
+          CameraMan::Errors::InvalidTime,
+          'The time must be an amount of seconds (integer)'
+        )
+      end
+    end
+  end
+
+  describe '#ends_at' do
+    it 'set the correct end time in the initializer' do
+      ends_at = 2
+      video = described_class.new(file_path: 'tmp/teste.webm', ends_at: ends_at)
+
+      expect(video.ends_at).to eq(ends_at)
+    end
+
+    it 'set the correct end time with the setter' do
+      ends_at = 1
+      video = described_class.new(file_path: 'tmp/teste.webm')
+      video.ends_at = ends_at
+
+      expect(video.ends_at).to eq(ends_at)
+    end
+
+    context 'when end time is invalid' do
+      it 'raise an error' do
+        ends_at = 'one'
+        video = described_class.new(file_path: 'tmp/teste.webm')
+
+        expect { video.ends_at = ends_at }.to raise_error(
+          CameraMan::Errors::InvalidTime,
+          'The time must be an amount of seconds (integer)'
+        )
+      end
+    end
+  end
 end
