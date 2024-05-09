@@ -4,19 +4,18 @@ require_relative 'camera_man/version'
 
 module CameraMan
   require 'camera_man/config'
-  module Errors
-    require 'camera_man/errors'
+  require 'camera_man/errors'
+
+  module Types
+    require 'camera_man/types/subtitle'
+    require 'camera_man/types/file_path'
   end
+
 
   module Medias
     require 'camera_man/medias/video'
+    require 'camera_man/medias/subtitle'
   end
 
   require 'camera_man/project'
-
-  private
-  
-  module Utils
-    require 'camera_man/utils/file_path'
-  end
 end
