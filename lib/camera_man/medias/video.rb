@@ -9,7 +9,7 @@ module CameraMan
     # This class is responsible for store all the
     # video states and to make all the needed processes
     class Video
-      attr_reader :file_path, :metadata, :resolution, 
+      attr_reader :file_path, :metadata, :resolution,
                   :aspect_ratio, :starts_at, :ends_at
 
       def initialize(
@@ -19,7 +19,7 @@ module CameraMan
         starts_at: nil,
         ends_at: nil
       )
-        @file_path = Utils::FilePath.new(file_path)
+        @file_path = Types::FilePath.new(file_path)
 
         self.resolution   = resolution   if !resolution.nil?
         self.aspect_ratio = aspect_ratio if !aspect_ratio.nil?
@@ -119,3 +119,4 @@ module CameraMan
     end
   end
 end
+

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module CameraMan
-  module Types
+  module Medias
     module Subtitles
       class Element
         def initialize(element)
@@ -42,3 +42,4 @@ module CameraMan
     end
   end
 end
+

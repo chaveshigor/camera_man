@@ -6,8 +6,8 @@ RSpec.describe CameraMan::Types::FilePath do
   describe '#new' do
     context 'when path is valid' do
       it 'should not raise' do
-        expect { described_class.new('tmp/teste.webm') }.to_not raise_error
-        expect { described_class.new('./tmp/teste.webm') }.to_not raise_error
+        expect { described_class.new('spec/fixtures/test.mp4') }.to_not raise_error
+        expect { described_class.new('./spec/fixtures/test.mp4') }.to_not raise_error
       end
     end
 
@@ -38,10 +38,10 @@ RSpec.describe CameraMan::Types::FilePath do
 
   describe '#to_s' do
     it 'returns the file_path' do
-      filepath = described_class.new('tmp/teste.webm')
+      filepath = described_class.new('spec/fixtures/test.mp4')
 
-      expect(filepath.to_s).to eq('tmp/teste.webm')
-      expect("#{filepath}").to eq('tmp/teste.webm')
+      expect(filepath.to_s).to eq('spec/fixtures/test.mp4')
+      expect("#{filepath}").to eq('spec/fixtures/test.mp4')
     end
   end
 end
