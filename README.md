@@ -1,8 +1,6 @@
 # CameraMan
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/camera_man`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+CameraMan is a gem that allows you to edit videos using ruby.
 
 ## Installation
 
@@ -19,6 +17,10 @@ And then execute:
 Or install it yourself as:
 
     $ gem install camera_man
+
+This gem, under the hood, uses ffmpeg for video manipulation. Therefore, it's necessary to have ffmpeg installed.
+
+    $ sudo apt install ffmpeg
 
 ## Usage
 
