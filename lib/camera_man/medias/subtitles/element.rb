@@ -31,7 +31,7 @@ module CameraMan
         }.freeze
 
         def valid_element?
-          exception = Errors::InvalidElement.new(@element, ELEMENT_SCHEMA)
+          exception = StandardError, 'Invalid schema'
 
           @element.keys.sort == ELEMENT_SCHEMA.keys.sort or fail exception
           @element.each do |k, v|
