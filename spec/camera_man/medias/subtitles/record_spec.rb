@@ -15,7 +15,7 @@ RSpec.describe CameraMan::Medias::Subtitles::Record do
           )
         end
       end
-      
+
       it 'initialize the class' do
         subtitles = described_class.new(path: 'spec/fixtures/test.str')
 
