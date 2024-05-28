@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby 3.2.1 
+        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
+        with:
+          ruby-version: '3.2.1'
+
+      - name: Install Gems
+        run: bundle install
+
+      - name: Install dependencies
+        run: sudo apt install ffmpeg
+
+      - name: Run Tests
+        run: rspec

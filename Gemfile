@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '3.3.0'
+ruby '3.2.1'
 
 # Specify your gem's dependencies in camera_man.gemspec
 gemspec

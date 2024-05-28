@@ -2,6 +2,8 @@
 
 module CameraMan
   class Config
+    ::Dir.mkdir('tmp') unless ::File.directory?('tmp')
+
     class << self
       attr_accessor :open_ai_api_token
     end
