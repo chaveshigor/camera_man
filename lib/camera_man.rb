@@ -12,6 +12,8 @@ module CameraMan
 
 
   module Medias
+    require 'camera_man/medias/exceptions'
+    require 'camera_man/medias/audio'
     require 'camera_man/medias/video'
     require 'camera_man/medias/subtitles/record'
   end
